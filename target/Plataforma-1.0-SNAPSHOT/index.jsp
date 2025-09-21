@@ -1,12 +1,16 @@
-
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-        <title>Ingresar reservasión</title>
+        <title>Ingresar reservación</title>
+        <style>
+            .error {
+                color: red;
+                font-size: 14px;
+            }
+        </style>
     </head>
     <body>
 
@@ -18,7 +22,7 @@
                             <h4>Registro de Usuario</h4>
                         </div>
                         <div class="card-body">
-                            <form>
+                            <form id="form">
                                 <!-- Nombre -->
                                 <div class="mb-3">
                                     <label for="nombre" class="form-label">Nombre</label>
@@ -57,8 +61,10 @@
                                 </div>
                                 <!-- Botón Registrarse -->
                                 <div class="text-center">
-                                    <button type="submit" class="btn btn-dark px-4">Registrarse</button>
+                                    <button type="button" id="bntRegistrar" class="btn btn-dark px-4">Registrarse</button>
                                 </div>
+                                <!-- Mensaje de error -->
+                                <div id="mensaje" class="mt-2 error"></div>
                             </form>
                         </div>
                     </div>
@@ -66,6 +72,14 @@
             </div>
         </div>
 
+        <script type="text/javascript" src="main.js"></script>
+        <script type="text/javascript">
+            let btnRegistrarReservacion = document.querySelector("#bntRegistrar");
+
+            btnRegistrarReservacion.addEventListener("click", function () {
+                validarFormulario();
+            });
+        </script>
 
     </body>
 </html>
