@@ -51,8 +51,9 @@
                                 <!-- Confirmación de contraseña -->
                                 <div class="mb-3">
                                     <label for="confirmPassword" class="form-label">Confirmar contraseña</label>
-                                    <input type="password" class="form-control" id="confirmPassword" placeholder="Repite tu contraseña">
+                                    <input type="password" class="form-control" id="confirmaPassword" placeholder="Repite tu contraseña">
                                 </div>
+                                <small id="mensajePassword" ></small>
                                 <!-- Captcha simple -->
                                 <div class="mb-3">
                                     <label class="form-label">Captcha: escribe el texto</label>
@@ -74,12 +75,24 @@
 
         <script type="text/javascript" src="main.js"></script>
         <script type="text/javascript">
+            
+            let validaPass=document.getElementById("confirmaPassword");
+            validaPass.addEventListener("input",function(){
+            validaPassword();        
+        });
+            
             let btnRegistrarReservacion = document.querySelector("#bntRegistrar");
 
-            btnRegistrarReservacion.addEventListener("click", function () {
+            btnRegistrarReservacion.addEventListener("click", function (event) {
+                event.preventDefault();
                 validarFormulario();
             });
+            
+            
+            
+            
         </script>
+    
 
     </body>
 </html>
